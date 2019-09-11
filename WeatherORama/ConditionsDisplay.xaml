@@ -13,6 +13,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -23,9 +24,11 @@
         <Label Grid.Row="1" Grid.Column="0" Content="Temperature" Margin="8"/>
         <Label Grid.Row="2" Grid.Column="0" Content="Humidity" Margin="8"/>
         <Label Grid.Row="3" Grid.Column="0" Content="Pressure" Margin="8"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="Heat Index" Margin="8"/>
 
         <Label x:Name="LabelTemperature" Grid.Row="1" Grid.Column="1" Content="0" Margin="8"/>
-        <Label x:Name="LabelHumidity" Grid.Row="2" Grid.Column="2" Content="0" Margin="8"/>
-        <Label x:Name="LabelPressure" Grid.Row="3" Grid.Column="3" Content="0" Margin="8"/>
+        <Label x:Name="LabelHumidity" Grid.Row="2" Grid.Column="1" Content="0" Margin="8"/>
+        <Label x:Name="LabelPressure" Grid.Row="3" Grid.Column="1" Content="0" Margin="8"/>
+        <Label x:Name="LabelHeatIndex" Grid.Row="4" Grid.Column="1" Content="0" Margin="8"/>
     </Grid>
 </UserControl>

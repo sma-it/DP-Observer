@@ -34,11 +34,12 @@ namespace WeatherORama
             weatherData.removeObserver(this);
         }
 
-        public void update(float temp, float humidity, float pressure)
+        public void update()
         {
-            LabelTemperature.Content = temp.ToString();
-            LabelHumidity.Content = humidity.ToString();
-            LabelPressure.Content = pressure.ToString();
+            LabelTemperature.Content = weatherData.Temperature.ToString();
+            LabelHumidity.Content = weatherData.Humidity.ToString();
+            LabelPressure.Content = weatherData.Pressure.ToString();
+            LabelHeatIndex.Content = weatherData.HeatIndex.ToString();
         }
     }
 }

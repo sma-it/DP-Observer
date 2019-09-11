@@ -42,6 +42,17 @@ namespace WeatherORama
             }
         }
 
+        private float heatIndex;
+        public float HeatIndex
+        {
+            get => heatIndex;
+            set
+            {
+                heatIndex = value;
+                measurementsChanged();
+            }
+        }
+
         public WeatherData()
         {
             observers = new List<IObserver>();
@@ -61,8 +72,7 @@ namespace WeatherORama
         {
             observers.ForEach((observer) =>
             {
-                observer.update(temperature, humidity, pressure);
-                Console.WriteLine("Sending data ...");
+                observer.update();
             });
         }
 

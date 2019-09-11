@@ -11,5 +11,10 @@ namespace WeatherORama
         void registerObserver(IObserver observer);
         void removeObserver(IObserver observer);
         void notifyObservers();
+
+        float Temperature { get; }
+        float Humidity { get; }
+        float Pressure { get; }
+        float HeatIndex { get; }
     }
 }
