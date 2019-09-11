@@ -28,32 +28,27 @@ namespace WeatherORama
             InitializeComponent();
             DataContext = this;
 
-            setObserver(new ConditionsDisplay());
+            setObserver(new ConditionsDisplay(Data));
         }
 
         private void setObserver(IObserver observer)
         {
-            if (DisplayController.Content != null)
-            {
-                Data.removeObserver(DisplayController.Content as IObserver);
-            }
-            Data.registerObserver(observer);
             DisplayController.Content = observer;
         }
 
         private void CurrentConditionsButton_Click(object sender, RoutedEventArgs e)
         {
-            setObserver(new ConditionsDisplay());
+            setObserver(new ConditionsDisplay(Data));
         }
 
         private void ForecastButton_Click(object sender, RoutedEventArgs e)
         {
-            setObserver(new ForecastDisplay());
+            setObserver(new ForecastDisplay(Data));
         }
 
         private void StatisticsButton_Click(object sender, RoutedEventArgs e)
         {
-            setObserver(new StatisticsDisplay());
+            setObserver(new StatisticsDisplay(Data));
         }
     }
 }

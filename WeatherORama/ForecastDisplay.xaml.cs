@@ -21,10 +21,18 @@ namespace WeatherORama
     public partial class ForecastDisplay : UserControl, IObserver
     {
         Random random = new Random();
+        private ISubject weatherData;
 
-        public ForecastDisplay()
+        public ForecastDisplay(WeatherData data)
         {
             InitializeComponent();
+            data.registerObserver(this);
+            weatherData = data;
+        }
+
+        ~ForecastDisplay()
+        {
+            weatherData.removeObserver(this);
         }
 
         public void update(float temp, float humidity, float pressure)

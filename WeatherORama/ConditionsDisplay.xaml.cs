@@ -20,10 +20,18 @@ namespace WeatherORama
     /// </summary>
     public partial class ConditionsDisplay : UserControl, IObserver
     {
+        private ISubject weatherData;
 
-        public ConditionsDisplay()
+        public ConditionsDisplay(WeatherData data)
         {
             InitializeComponent();
+            data.registerObserver(this);
+            weatherData = data;
+        }
+
+        ~ConditionsDisplay()
+        {
+            weatherData.removeObserver(this);
         }
 
         public void update(float temp, float humidity, float pressure)

@@ -24,9 +24,18 @@ namespace WeatherORama
         List<float> humidities = new List<float>();
         List<float> pressures = new List<float>();
 
-        public StatisticsDisplay()
+        private ISubject weatherData;
+
+        public StatisticsDisplay(WeatherData data)
         {
             InitializeComponent();
+            data.registerObserver(this);
+            weatherData = data;
+        }
+
+        ~StatisticsDisplay()
+        {
+            weatherData.removeObserver(this);
         }
 
         public void update(float temp, float humidity, float pressure)
